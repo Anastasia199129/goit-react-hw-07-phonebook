@@ -1,56 +1,40 @@
-// import React, { useEffect, useState } from 'react';
-// import shortid from 'shortid';
 import PropTypes from 'prop-types';
 import s from './App.css';
+import { connect } from 'react-redux';
 import ContactForm from './components/contactForm/ContactForm';
 import Filter from './components/filter/Filter';
 import ContactList from './components/contactList/ContactList';
 import Title from './components/title/Title';
+import operations from './redux/contacts/contacts-operations';
+import { Component } from 'react';
 
-// const getContacts = localStorage.getItem('contacts');
-// const parsContacts = JSON.parse(getContacts);
-// const initialState = [
-//   { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-//   { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-//   { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-//   { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-// ];
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchContacts();
+  }
 
-const App = () => {
-  // const [contacts, setContacts] = useState(() => {
-  //   return parsContacts ?? initialState;
-  // });
-
-  // const [filter, setFilter] = useState('');
-
-  // useEffect(() => {
-  //   if (contacts.length > 0) {
-  //     window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  //   }
-  // }, [contacts]);
-
-  // const formSubmitHendler = data => {
-  //   contacts.find(n => n.name === data.name)
-  //     ? alert(`${data.name} already exists`)
-  //     : setContacts(prevState => {
-  //         return [{ id: shortid.generate(), ...data }, ...prevState];
-  //       });
-  // };
-
-  return (
-    <div className={s.container}>
-      <Title text="Phoneboock" />
-      <ContactForm />
-      <Title text="Contacts" />
-      <Filter />
-      <ContactList />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div className={s.container}>
+        <Title text="Phoneboock" />
+        <ContactForm />
+        <Title text="Contacts" />
+        <Filter />
+        <ContactList />
+      </div>
+    );
+  }
+}
 
 App.propTypes = {
   contacts: PropTypes.array,
   filter: PropTypes.string,
 };
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  fetchContacts: () => {
+    dispatch(operations.fetchContacts());
+  },
+});
+
+export default connect(null, mapDispatchToProps)(App);

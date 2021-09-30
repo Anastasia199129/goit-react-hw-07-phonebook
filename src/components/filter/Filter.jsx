@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import s from './filter.module.css';
 import { connect } from 'react-redux';
-import actions from '../../redux/contacts/contasts-actions';
+import * as actions from '../../redux/contacts/contasts-actions';
 
 const Filter = ({ onChange, value }) => {
   return (

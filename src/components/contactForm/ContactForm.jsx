@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import style from './contactForm.module.css';
 import { connect } from 'react-redux';
-import actions from '../../redux/contacts/contasts-actions';
+import operations from '../../redux/contacts/contacts-operations';
 
 const ContactForm = ({ propOnSubmit }) => {
   const [namePerson, setName] = useState('');
@@ -79,7 +79,7 @@ ContactForm.propTypes = {
 };
 
 const mapDispatchToProps = dispatch => ({
-  propOnSubmit: obj => dispatch(actions.addContacts(obj)),
+  propOnSubmit: obj => dispatch(operations.addContacts(obj)),
 });
 
 export default connect(null, mapDispatchToProps)(ContactForm);

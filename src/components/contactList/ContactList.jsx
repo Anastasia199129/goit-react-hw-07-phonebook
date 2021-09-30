@@ -2,7 +2,7 @@ import Button from '../button/Button';
 import PropTypes from 'prop-types';
 import style from './contactList.module.css';
 import { connect } from 'react-redux';
-import action from '../../redux/contacts/contasts-actions';
+import operations from '../../redux/contacts/contacts-operations';
 
 const ContactList = ({ filtred, onButtonDeleteClick }) => {
   return (
@@ -43,7 +43,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onButtonDeleteClick: id => dispatch(action.deleteContact(id)),
+  onButtonDeleteClick: id => dispatch(operations.deleteContact(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);
