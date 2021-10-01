@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import s from './App.css';
+import s from './App.module.css';
 import { connect } from 'react-redux';
 import ContactForm from './components/contactForm/ContactForm';
 import Filter from './components/filter/Filter';
@@ -8,6 +8,8 @@ import Title from './components/title/Title';
 import operations from './redux/contacts/contacts-operations';
 import { Component } from 'react';
 import contactsSelectors from './redux/contacts/contacts-selectors';
+import Loader from 'react-loader-spinner';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 class App extends Component {
   componentDidMount() {
@@ -18,7 +20,11 @@ class App extends Component {
     return (
       <div className={s.container}>
         <Title text="Phoneboock" />
-        {this.props.isLoading && <h1>loading...</h1>}
+        {this.props.isLoading && (
+          <div className={s.loader}>
+            <Loader type="Hearts" color="rgb(192, 37, 192" height={200} width={200} />
+          </div>
+        )}
         <ContactForm />
         <Title text="Contacts" />
         <Filter />
