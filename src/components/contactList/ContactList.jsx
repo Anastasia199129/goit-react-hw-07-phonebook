@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import style from './contactList.module.css';
 import { connect } from 'react-redux';
 import operations from '../../redux/contacts/contacts-operations';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
 
 const ContactList = ({ filtred, onButtonDeleteClick }) => {
   return (
@@ -29,7 +30,7 @@ ContactList.propTypes = {
   filtred: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      id: PropTypes.string,
+      id: PropTypes.any,
       number: PropTypes.string,
     }),
   ),
@@ -37,9 +38,7 @@ ContactList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-  filtred: state.contacts.items.filter(({ name }) =>
-    name.toLowerCase().includes(state.contacts.filter.toLowerCase()),
-  ),
+  filtred: contactsSelectors.getFiltredContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

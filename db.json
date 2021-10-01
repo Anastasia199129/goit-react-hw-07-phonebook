@@ -1,49 +1,24 @@
 {
   "contacts": [
     {
-      "name": "jkkkk",
-      "number": "55555",
-      "id": 1
+      "id": "id-1",
+      "name": "Rosie Simpson",
+      "number": "459-12-56"
     },
     {
-      "name": "hhhh",
-      "number": "2222-2",
-      "id": 2
+      "id": "id-2",
+      "name": "Hermione Kline",
+      "number": "443-89-12"
     },
     {
-      "name": "jkkkk",
-      "number": "555555",
-      "id": 3
+      "id": "id-3",
+      "name": "Eden Clements",
+      "number": "645-17-79"
     },
     {
-      "name": "jkkkk",
-      "number": "55-55-55",
-      "id": 4
-    },
-    {
-      "name": "jkkkk",
-      "number": "55-55-55",
-      "id": 5
-    },
-    {
-      "name": "hhhh",
-      "number": "999555",
-      "id": 6
-    },
-    {
-      "name": "jkkkk",
-      "number": "2222-2",
-      "id": 7
-    },
-    {
-      "name": "jkkkk",
-      "number": "999555",
-      "id": 8
-    },
-    {
-      "name": "fghjkl",
-      "number": "55555",
-      "id": 9
+      "id": "id-4",
+      "name": "Annie Copeland",
+      "number": "227-91-26"
     }
   ]
 }
